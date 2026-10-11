@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: armenian-ecommerce-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: armenian_shop
+      POSTGRES_USER: shop_user
+      POSTGRES_PASSWORD: shop_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - armenian_shop_data:/var/lib/postgresql/data
+
+volumes:
+  armenian_shop_data:
